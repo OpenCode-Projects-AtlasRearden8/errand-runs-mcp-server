@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "errand-runs-mcp-server"
+version = "0.1.0"
+description = "Local MCP server for errands: log items with store tags, plan one low-energy single-run trip (one store plus one), and pull a receipt for the day. All data stays on disk."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Asdale Dynamics, LLC" }]
+keywords = ["mcp", "errands", "shopping", "adhd-friendly", "local-first"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+dependencies = ["mcp>=1.2,<3"]
+
+[project.scripts]
+errand-runs-server = "errand_runs.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
